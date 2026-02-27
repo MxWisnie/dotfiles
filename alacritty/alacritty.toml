@@ -25,31 +25,39 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [colors.primary]
-background = "0x282828"
-foreground = "0xebdbb2"
+foreground = "#c2c2b0"
+background = "#222222"
+
+[colors.cursor]
+text = "#eeeeee"
+cursor = "#c7c7c7"
+
+[colors.selection]
+text = "#000000"
+background = "#e5c47b"
 
 [colors.normal]
-black   = "0x282828"
-red     = "0xcc241d"
-green   = "0x98971a"
-yellow  = "0xd79921"
-blue    = "0x458588"
-magenta = "0xb16286"
-cyan    = "0x689d6a"
-white   = "0xa89984"
+black = "#000000"
+red = "#685742"
+green = "#5f875f"
+yellow = "#b36d43"
+blue = "#78824b"
+magenta = "#bb7744"
+cyan = "#c9a554"
+white = "#d7c483"
 
 [colors.bright]
-black   = "0x928374"
-red     = "0xfb4934"
-green   = "0xb8bb26"
-yellow  = "0xfabd2f"
-blue    = "0x83a598"
-magenta = "0xd3869b"
-cyan    = "0x8ec07c"
-white   = "0xebdbb2"
+black = "#666666"
+red = "#685742"
+green = "#5f875f"
+yellow = "#b36d43"
+blue = "#78824b"
+magenta = "#bb7744"
+cyan = "#c9a554"
+white = "#d7c483"
 
 [font]
-size = 14.5
+size = 13
 
 [font.normal]
 family = "JetBrains Mono"
