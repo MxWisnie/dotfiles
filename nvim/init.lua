@@ -81,6 +81,34 @@ vim.api.nvim_create_user_command("CP", function()
     print("File copied to system clipboard ✅")
 end, {})
 
+-- vim.api.nvim_create_user_command("RUN", function()
+--     local file = vim.fn.expand("%")
+--     local output = vim.fn.expand("%:r") -- same name without extension
+--     -- vim.cmd("!g++ " .. file .. " -o " .. output .. " && ./" .. output)
+--     vim.cmd("!g++ -std=c++17 -O2 -Wall -Wextra -Wshadow -Wconversion -Wunreachable-code -Wreturn-type -Wno-unused-result " .. file .. " -o " .. output)
+--     vim.cmd("!g++ " .. file .. " -o " .. output)
+-- end, {})
+
+vim.api.nvim_create_user_command("RUN", function()
+    vim.cmd("w") -- Always save before compiling
+    
+    local file = vim.fn.expand("%")
+    local output = vim.fn.expand("%:r")
+    
+    -- Construct the full command string
+    -- 1. Compile with your specific CP flags
+    -- 2. If successful (&&), run the binary
+    local flags = "-std=c++17 -O2 -Wall -Wextra -Wshadow -Wconversion -Wunreachable-code -Wreturn-type -Wno-unused-result"
+    local cmd = string.format("g++ %s %s -o %s && ./%s", flags, file, output, output)
+
+    -- Open a terminal in a bottom split and run it
+    vim.cmd("botright split | resize 12 | term " .. cmd)
+    vim.cmd("startinsert") -- Auto-focus the terminal for input
+end, {})
+
+-- Keymap for convenience
+vim.keymap.set("n", "<leader>r", ":RUN<CR>", { desc = "Compile and Run C++" })
+
 vim.keymap.set("n", "<leader>cp", ":CP<CR>", { desc = "Copy whole file to clipboard" })
 vim.keymap.set("n", "<leader>u", require("undotree").open)
 -- end KEYMAPS
