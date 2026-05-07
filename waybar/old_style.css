@@ -1,0 +1,90 @@
+* {
+    /* Prioritize specific fonts, fallback to Symbols Nerd Font for missing icons */
+    font-family: "UbuntuMono Nerd Font", "JetBrainsMono Nerd Font", "Symbols Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #323232;
+    color: #ffffff;
+}
+
+/* Backgrounds for the main sections */
+.modules-left, .modules-right {
+    background-color: #323232;
+}
+
+.modules-right {
+    padding-right: 5px;
+}
+
+/* Workspaces */
+#workspaces button {
+    /* Decreased padding */
+    padding: 0px 8px;
+    min-width: 1px;
+    color: #888888;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+#workspaces button:hover {
+    background-color: #1e3f59;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+/* Active workspace in Hyprland */
+#workspaces button.active {
+    background-color: #285577;
+    color: #ffffff;
+}
+
+/* Window Title */
+#window {
+    color: #ffffff;
+    background-color: #285577;
+    /* Decreased padding */
+    padding: 0px 10px;
+    margin-left: 5px;
+}
+
+window#waybar.empty #window {
+    background-color: transparent;
+    color: transparent;
+}
+
+/* Right side modules padding (Added power-profiles-daemon and decreased to 8px) */
+#network, #bluetooth, #temperature, #backlight, #pulseaudio, #power-profiles-daemon, #battery {
+    padding: 0px 8px;
+}
+
+#clock {
+    margin: 0px 8px;
+}
+
+#tray {
+    padding: 0px 5px;
+    margin: 0px 5px;
+}
+
+/* Alert States */
+#battery.critical {
+    color: #ff5555;
+}
+
+#network.disconnected {
+    color: #ff5555;
+}
+
+#pulseaudio.source-muted {
+    color: #b8b8b8;
+}
+
+/* Optional: Highlight bluetooth when connected */
+#bluetooth.connected {
+    color: #00bfff;
+}

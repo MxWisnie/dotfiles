@@ -1,0 +1,110 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 27,
+    "spacing": 0,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "power-profiles-daemon",
+        "network",
+        "bluetooth",
+        "temperature",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        "clock",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 80
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "clock": {
+        "format": "{:%a %b %e  %R}",
+        "interval": 30
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "full": 100,
+            "good": 98,
+            "normal": 80,
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{icon}  {capacity}% ({time})",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 30
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀  Ethernet",
+        "format-disconnected": "⚠  Disconnected",
+        "on-click": "alacritty -e nmtui",
+        "interval": 10
+    },
+
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "on-click": "blueman-manager",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected"
+    },
+
+    "temperature": {
+        "thermal-zone": 0,
+        "format": " {temperatureC}°C",
+        "interval": 30
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [""]
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}% {desc}  {format_source}",
+        "format-bluetooth": " {volume}%  {desc}   {format_source}",
+        "format-muted": " Mute {desc}   {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
