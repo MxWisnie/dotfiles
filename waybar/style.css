@@ -1,28 +1,22 @@
 * {
-    /* Prioritize specific fonts, fallback to Symbols Nerd Font for missing icons */
     font-family: "UbuntuMono Nerd Font", "JetBrainsMono Nerd Font", "Symbols Nerd Font", "Font Awesome 6 Free", sans-serif;
     font-size: 13px;
     border: none;
     border-radius: 0;
     min-height: 0;
 }
-
 window#waybar {
     background-color: #323232;
     color: #ffffff;
 }
-
-/* Backgrounds for the main sections */
 .modules-left, .modules-right {
     background-color: #323232;
 }
-
 .modules-right {
     padding-right: 4px;
 }
 
 /* --- LEFT SIDE --- */
-
 #workspaces button {
     padding: 0px 8px;
     min-width: 1px;
@@ -30,75 +24,75 @@ window#waybar {
     background-color: transparent;
     transition: background-color 0.2s ease;
 }
-
 #workspaces button:hover {
     background-color: #1e3f59;
 }
-
 #workspaces button.active {
     background-color: #285577;
     color: #ffffff;
 }
-
 #window {
     color: #ffffff;
     background-color: #285577;
     padding: 0px 12px;
-    /* Added a pipe between workspaces and window title */
     border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 window#waybar.empty #window {
     background-color: transparent;
     color: transparent;
     border-left: none;
 }
 
-/* --- RIGHT SIDE (Applets with Pipes) --- */
-
-/* Unified styling for all right-side modules to add vertical pipes */
+/* --- RIGHT SIDE --- */
+#custom-power,
+#cpu,
+#memory,
 #power-profiles-daemon,
-#network, 
-#bluetooth, 
-#temperature, 
-#backlight, 
-#pulseaudio, 
+#network,
+#bluetooth,
+#temperature,
+#backlight,
+#pulseaudio,
 #battery,
 #clock,
 #tray {
     padding: 0px 10px;
-    /* Subtle white pipe with 15% opacity */
     border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Remove the pipe from the very first module on the right */
-#power-profiles-daemon {
+/* First module on the right — no pipe */
+#custom-power {
     border-left: none;
+    color: #ffffff;
+}
+#custom-power:hover {
+    color: #ff5555;
+    background-color: rgba(255, 85, 85, 0.15);
 }
 
-/* Specific module adjustments */
 #clock {
-    margin: 0; 
+    margin: 0;
 }
-
 #tray {
     margin: 0;
 }
 
 /* --- STATES & COLORS --- */
-
 #battery.critical {
     color: #ff5555;
 }
-
 #network.disconnected {
     color: #ff5555;
 }
-
 #pulseaudio.source-muted {
     color: #b8b8b8;
 }
-
 #bluetooth.connected {
     color: #00bfff;
+}
+#cpu.warning, #memory.warning {
+    color: #ffaa55;
+}
+#cpu.critical, #memory.critical {
+    color: #ff5555;
 }

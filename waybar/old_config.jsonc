@@ -74,6 +74,7 @@
         "random-icons": {
             "off": "<span color=\"#f53c3c\"></span> ",
             "on": " "
+bind = $mainMod, F7, exec, bash -c 'lua ~/.config/hypr/scripts/monitor-switch.lua'
         },
         "repeat-icons": {
             "on": " "
