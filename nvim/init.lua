@@ -8,6 +8,7 @@ vim.pack.add({
     { src = "https://github.com/williamboman/mason.nvim" },
     { src = "https://github.com/williamboman/mason-lspconfig.nvim" },
     { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+    { src = "https://github.com/saghen/blink.lib" },
     { src = "https://github.com/saghen/blink.cmp" },
 
     { src = "https://github.com/windwp/nvim-autopairs" },
@@ -19,6 +20,8 @@ vim.pack.add({
 vim.cmd('packadd nvim.tohtml')
 vim.cmd('packadd nvim.undotree')
 
+
+-- vim.cmd('colorscheme catppuccin')
 vim.cmd('colorscheme github_dark_tritanopia')
 
 vim.opt.number = true
@@ -116,7 +119,13 @@ vim.keymap.set("n", "<leader>u", require("undotree").open)
 -- begin PLUGIN CONFIGURATION
 
 -- 1. Blink CMP Setup
-require('blink.cmp').setup({
+local cmp = require('blink.cmp')
+
+-- This will download and build the necessary Rust binaries
+cmp.build():pwait()
+
+cmp.setup({
+
     keymap = {
         preset = "default",
         -- ["<C-space>"] = {
@@ -167,10 +176,6 @@ require('blink.cmp').setup({
 
     sources = {
         default = { "lsp", "path", "snippets", "buffer" },
-    },
-    fuzzy = {
-        implementation = "prefer_rust",
-        prebuilt_binaries = { force_version = "v1*", download = true },
     },
 })
 
